@@ -25,9 +25,9 @@ def load_model_and_scaler(model_path, scaler_path, x_path):
         return None, None, None
 
 # Load the model, scaler, and initial sequence
-model_path = r"C:\Users\sahub\Desktop\P461_stock_analysis\lstm_model.pkl"
-scaler_path = r"C:\Users\sahub\Desktop\P461_stock_analysis\scaler"
-x_path = r"C:\Users\sahub\Desktop\P461_stock_analysis\test_x"
+model_path = r""
+scaler_path = r"/workspaces/AppleStockPriceForecast/scaler"
+x_path = r"/workspaces/AppleStockPriceForecast/X_scaled"
 model, scaler, x = load_model_and_scaler(model_path, scaler_path, x_path)
 
 # Input for the number of forecast days
