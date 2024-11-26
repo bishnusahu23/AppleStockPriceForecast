@@ -21,3 +21,5 @@ Volume: total share cost from all the shareholders
 - Applied hyperparameter tuning to optimize model accuracy and addressed overfitting through regularization techniques and validation strategies.
 # Conclusion
 The LSTM model achieved a low RMSE of 10, demonstrating high accuracy in predicting stock price movements. The project provided valuable insights into time-series forecasting and highlighted the potential of machine learning models for financial market analysis and decision-making.
+# Deployment using streamlit:
+https://applestockpriceforecast-7cfqq5tf8vf56qepuwcme8.streamlit.app/
