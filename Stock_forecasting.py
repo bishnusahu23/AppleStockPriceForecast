@@ -25,7 +25,7 @@ def load_model_and_scaler(model_path, scaler_path, x_path):
         return None, None, None
 
 # Load the model, scaler, and initial sequence
-model_path = r""
+model_path = r"/workspaces/AppleStockPriceForecast/lstm_model.pkl"
 scaler_path = r"/workspaces/AppleStockPriceForecast/scaler"
 x_path = r"/workspaces/AppleStockPriceForecast/X_scaled"
 model, scaler, x = load_model_and_scaler(model_path, scaler_path, x_path)
