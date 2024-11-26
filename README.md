@@ -1,4 +1,4 @@
-# Apple Stock Proce Forecasting Model
+# Apple Stock Price Forecasting Model
 # Objective
 Developed a predictive model to forecast Apple stock prices based on historical closing price data, with a focus on capturing time-dependent patterns.
 # Tools Used
