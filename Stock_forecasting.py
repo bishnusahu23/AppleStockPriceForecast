@@ -14,7 +14,7 @@ st.markdown("""
 Forecast the closing prices of Apple stock for a specified number of days based on historical data.
 Use this tool to visualize future trends and make data-driven decisions. 📊
 """)
-
+@st.cache_data
 # Function to load the model, scaler, and initial input sequence
 def load_model_and_scaler(model_path, scaler_path, x_path):
     try:
