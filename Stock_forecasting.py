@@ -5,10 +5,15 @@ import streamlit as st
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
-# Title of the app
-st.title("Apple Stock Price Forecasting")
-st.write("Forecast the closing prices of Apple stock for a specified number of days based on historical data.")
+# Page title and description
+st.set_page_config(page_title="Apple Stock Price Forecasting", layout="wide")
+st.title("📈 Apple Stock Price Forecasting")
+st.markdown("""
+Forecast the closing prices of Apple stock for a specified number of days based on historical data.
+Use this tool to visualize future trends and make data-driven decisions. 📊
+""")
 
 # Function to load the model, scaler, and initial input sequence
 def load_model_and_scaler(model_path, scaler_path, x_path):
@@ -48,8 +53,8 @@ def generate_forecast(model, scaler, x, steps):
 
         for _ in range(steps):
             # Predict the next value
-            next_pred = model.predict(last_sequence)[0][0]  
-            forecasted_values.append(next_pred)  
+            next_pred = model.predict(last_sequence)[0][0]
+            forecasted_values.append(next_pred)
 
             # Update the sequence with the new prediction
             next_input = np.array(next_pred).reshape(1, 1, 1)
@@ -57,30 +62,47 @@ def generate_forecast(model, scaler, x, steps):
 
         # Inverse scale the predictions to original scale
         forecasted_values_unscaled = scaler.inverse_transform(np.array(forecasted_values).reshape(-1, 1))
-        forecasted_values_unscaled=np.exp(forecasted_values_unscaled)
+        forecasted_values_unscaled = np.exp(forecasted_values_unscaled)
         return forecasted_values_unscaled
     except Exception as e:
         st.error(f"Error generating forecast: {e}")
         return None
 
 # Button to trigger the forecast
-if st.button("Generate Forecast"):
+if st.button("📊 Generate Forecast"):
     if model and scaler and x is not None:
         forecast_result = generate_forecast(model, scaler, x, steps)
         if forecast_result is not None:
-            
-            st.write(f"### Forecast for the next {steps} days:")
-            forecast_table = {f"Day {i+1}": value[0] for i, value in enumerate(forecast_result)}
-            st.dataframe(forecast_table, width=1000, height=400)
-            
-            
-            st.write("### Forecast Trend")
-            plt.figure(figsize=(10, 6))
-            plt.plot(range(1, steps + 1), forecast_result, linestyle='-', color='green')
-            plt.title(f"Next {steps} days Apple Stock Prices")
-            plt.xlabel("Days")
-            plt.ylabel("Stock Price")
-            plt.grid(True)
-            st.pyplot(plt)
+            # Prepare the forecasted data
+            forecast_table = pd.DataFrame({
+                "Day": [f"Day {i+1}" for i in range(steps)],
+                "Predicted Stock Price (USD)": [value[0] for value in forecast_result]
+            })
+
+            # Display table and graph side by side
+            col1, col2 = st.columns(2)
+
+            with col1:
+                st.write(f"### 📅 Forecast for the next {steps} days:")
+                st.dataframe(forecast_table.style.format({
+                    "Predicted Stock Price (USD)": "${:,.2f}"
+                }).set_properties(**{
+                    "text-align": "center",
+                    "border-color": "black",
+                    "border-style": "solid"
+                }))
+
+            with col2:
+                st.write("### 📈 Forecast Trend")
+                # Use Streamlit's line chart for visualization
+                st.line_chart(
+                    pd.DataFrame(
+                        {
+                            "Days": range(1, steps + 1),
+                            "Predicted Stock Price (USD)": forecast_table["Predicted Stock Price (USD)"]
+                        }
+                    ).set_index("Days"),
+                    height=400
+                )
     else:
         st.error("Model, scaler, or input sequence could not be loaded. Please check the file paths.")
