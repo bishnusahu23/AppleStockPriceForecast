@@ -23,3 +23,7 @@ Volume: total share cost from all the shareholders
 The LSTM model achieved a low RMSE of 10, demonstrating high accuracy in predicting stock price movements. The project provided valuable insights into time-series forecasting and highlighted the potential of machine learning models for financial market analysis and decision-making.
 # Deployment using streamlit:
 https://applestockpriceforecast-uhciuywtcehznq5mgmbowr.streamlit.app/
+
+The project focuses entirely on analyzing and forecasting the closing price of the stock. Below is a static view of the closing price analysis:
+
+![Dashboard](applestockDashboard.png)
