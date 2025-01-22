@@ -24,6 +24,20 @@ The LSTM model achieved a low RMSE of 10, demonstrating high accuracy in predict
 # Deployment using streamlit:
 https://applestockpriceforecast-uhciuywtcehznq5mgmbowr.streamlit.app/
 
+
+Analysis of closing price of the apple stock:
 The project focuses entirely on analyzing and forecasting the closing price of the stock. Below is a static view of the closing price analysis:
 
-![Dashboard](applestockDashboard.png)
+![Dashboard](stockdashboard.png)
+
+Key Observations
+
+- Growth: The stock price has shown a positive trend over the eight years, with a 4.23% growth rate.
+- Highest Closing: The highest closing price was approximately 208 in 2018.
+- Initial Closing: The initial closing price in 2012 was around 55.79.
+- Downward Trends: The price experienced downward dips in 2013 and 2016.
+- Overall Trend: The overall trend is positive, with the price showing an upward trajectory.
+
+
+
+
