@@ -28,7 +28,7 @@ https://applestockpriceforecast-uhciuywtcehznq5mgmbowr.streamlit.app/
 # Apple Stock Price Analysis (2012–2019):
 
 - Here is the static view of the dashboard:
-![dashboard](apple_stock_dashboard.png)
+![dashboard](apple_stock_analysis.png)
 
 - Link for the power bi dashboard : https://app.powerbi.com/view?r=eyJrIjoiOGU0ZWI5MGEtM2ZhNy00ZDYzLTk1YzMtNzU1MDlmYjQ4MDU0IiwidCI6IjZmOTg3MmM0LTYzZDgtNDVkMi05YjM5LWUyNjhmYjQxY2Y4ZCJ9
 
